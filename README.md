@@ -1,21 +1,17 @@
-# Deepdive
+## Elixir
 
-**TODO: Add description**
+### Atoms
 
-## Installation
+- Constants
+- References to atom table, thus space efficient
+- Boolean values => true , false and nil are also atoms
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `deepdive` to your list of dependencies in `mix.exs`:
+### Aliases
 
-```elixir
-def deps do
-  [
-    {:deepdive, "~> 0.1.0"}
-  ]
-end
+```sh
+alias IO, as: myio
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/deepdive](https://hexdocs.pm/deepdive).
-
+- **Atoms** **nil** and **false** are falsy rest are truthy
+- **Tuples** are of fixed length
+- **Lists** are of dynamic length and they actually are **Singly Linked Lists**
