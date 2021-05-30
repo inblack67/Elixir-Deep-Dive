@@ -23,5 +23,21 @@ defmodule Utils do
     myputs = &IO.puts/1
 
     myputs.("ok world")
+
+    # create anonymous functions using capture operator
+    lamba = &(&1 * &2 + &3)
+    IO.puts(lamba.(2, 3, 4))
+
+    # closure
+    global = 10
+    closure = fn data -> IO.puts(data) end
+    # 10
+    closure.(global)
+    global = 200
+    # 10
+    # keeps the ref to prev var (10)
+    closure.(global)
+    # 200
+    IO.puts(global)
   end
 end
