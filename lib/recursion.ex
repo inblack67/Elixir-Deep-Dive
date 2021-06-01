@@ -16,8 +16,10 @@ defmodule Deepdive.Recursion do
     optimized_fib_started = :os.system_time(:seconds)
     IO.puts(optimized_fib(40))
     optimized_fib_ended = :os.system_time(:seconds)
-    IO.puts("optimized_fib took #{optimized_fib_ended - optimized_fib_started} seconds") # 0
+    # 0
+    IO.puts("optimized_fib took #{optimized_fib_ended - optimized_fib_started} seconds")
 
+    perfom_enums()
   end
 
   def print(0), do: :ok
@@ -44,4 +46,19 @@ defmodule Deepdive.Recursion do
   def optimized_fib(n), do: optimized_fib(n, 1, 0)
   defp optimized_fib(0, _, result), do: result
   defp optimized_fib(n, next, result), do: optimized_fib(n - 1, next + result, next)
+
+  def perfom_enums do
+    # 15 => x will have accumulator's value (initially 0) and y will have list's item value
+    Enum.reduce([1, 2, 3, 4, 5], 0, fn x, y -> x + y end)
+
+    # comprehension
+    _res1 = for x <- [1, 2, 3], do: x * x
+
+    # nested
+    _res2 = for x <- [1, 2, 3], y <- [1, 2, 3], do: {x, y, x + y}
+
+    table = for x <- 1..9, y <- 1..9, x < y, into: %{}, do: {{x, y}, x * y}
+
+    table[{1, 2}]
+  end
 end
