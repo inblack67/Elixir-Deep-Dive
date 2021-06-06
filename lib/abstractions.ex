@@ -23,4 +23,5 @@ defmodule MultiStorage do
     # 3rd arg is default
     Map.get(storage, key, [])
   end
+
 end
