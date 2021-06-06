@@ -1,7 +1,16 @@
 defmodule Tasks do
   defstruct id: 0, entries: %{}
 
-  def new, do: %Tasks{}
+  # def new, do: %Tasks{}
+
+  # making it so, a new entry can be appended to the prev created tasks
+  def new(entries \\ []) do
+    Enum.reduce(
+      entries,
+      %Tasks{},
+      fn entry, acc -> add_task(acc, entry) end
+    )
+  end
 
   def add_task(task_list, new_task) do
     entry = Map.put(new_task, :id, task_list.id)
