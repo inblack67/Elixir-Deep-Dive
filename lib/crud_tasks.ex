@@ -7,6 +7,7 @@ defmodule Tasks do
   def new(entries \\ []) do
     Enum.reduce(
       entries,
+      # init val of the acc
       %Tasks{},
       fn entry, acc -> add_task(acc, entry) end
     )
