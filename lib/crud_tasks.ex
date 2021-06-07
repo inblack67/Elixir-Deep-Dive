@@ -71,3 +71,31 @@ defmodule Tasks do
     end
   end
 end
+
+defmodule TaskServer do
+  # client side
+  def start do
+    GenericServer.start(TaskServer)
+  end
+
+  def add_task(server_id, new_entry) do
+    GenericServer.cast(server_id, {:add_task, new_entry})
+  end
+
+  def get_tasks(server_id) do
+    GenericServer.call(server_id, {:get_tasks})
+  end
+
+  # server side
+  def init do
+    Tasks.new()
+  end
+
+  def handle_cast({:add_task, new_entry}, task_list) do
+    Tasks.add_task(task_list, new_entry)
+  end
+
+  def handle_cast({:get_tasks}, task_list) do
+    {Tasks.get_tasks(task_list), task_list}
+  end
+end

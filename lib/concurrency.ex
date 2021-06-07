@@ -39,5 +39,12 @@ defmodule Ok do
   # pattern matching gives error if not matched but in processes case => if a message is not matched => it will be put back in the mail box => message pattern checking => first to last
 
   def parallel_sum do
+    pid = 123
+    # now instead of pid, we can ref the process with :my_process
+    # name of the pocess must be an atom => unique
+    Process.register(pid, :my_process)
   end
+
+  # avoid bottlenecks => mailbox can take unlimited memory so it might crash the system
+  # 5 process in parallel but one process sleeps for 1 second and it finalizes the rest of the 4 process in it's code => so now this process will define the performance of the app => try splitting it into further processes
 end
