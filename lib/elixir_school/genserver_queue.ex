@@ -25,6 +25,13 @@ defmodule ElixirSchool.Concurrency.GenServers.Queue do
     {:reply, state, state}
   end
 
+  # Asynchronous requests are handled with the handle_cast/2 callback. This works much like handle_call/3 but does not receive the caller and is not expected to reply.
+
+  def handle_cast({:enqueue, value}, state) do
+    {:noreply, state ++ [value]}
+  end
+
   def queue, do: GenServer.call(__MODULE__, :queue)
+  def enqueue(value), do: GenServer.cast(__MODULE__, {:enqueue, value})
   def dequeue, do: GenServer.call(__MODULE__, :dequeue)
 end
