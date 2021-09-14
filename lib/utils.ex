@@ -126,18 +126,18 @@ defmodule Utils do
     # number < atom < reference < function < port < pid < tuple < map < list < bitstring (binary)
 
     # lambda functions
-    cool_lambda = fn
-      x when is_number(x) and x < 0 ->
-        :negative
+    # cool_lambda = fn
+    #   x when is_number(x) and x < 0 ->
+    #     :negative
 
-      0 ->
-        :zero
+    #   0 ->
+    #     :zero
 
-      x when is_number(x) and x > 0 ->
-        :positive
-    end
+    #   x when is_number(x) and x > 0 ->
+    #     :positive
+    # end
 
-    cool_lambda.(12)
+    # cool_lambda.(12)
   end
 
   def area({a, b}) do
@@ -176,8 +176,6 @@ defmodule Utils do
     case a >= b do
       true -> a
       false -> b
-      # catch
-      _ -> :error
     end
   end
 

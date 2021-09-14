@@ -3,13 +3,5 @@ defmodule ElixirSchool.Distributed do
 
   # A node is any Erlang runtime system that has been given a name. We can start a node by opening up iex session and naming it:
 
-  @doc """
-  Creating node
-
-  iex --sname alex@localhost
-  iex(alex@localhost)>
-  """
-
   # https://elixirschool.com/en/lessons/advanced/otp-distribution/
-
 end
